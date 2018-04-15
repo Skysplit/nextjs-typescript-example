@@ -1,12 +1,12 @@
-import express from 'express';
 import app from './app';
-
-const server = express();
+import nextApp from '@app/next';
 
 (async () => {
-  await app(server);
-  server.listen(8000, () => {
-    console.log('Server started');
+  const handleRequest = await nextApp();
+  app.use(handleRequest);
+
+  app.listen(8000, () => {
+    console.log('Server started on port 8000');
   });
 })();
 

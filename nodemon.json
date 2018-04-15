@@ -1,3 +1,4 @@
 {
-  "watch": ["src/server/**/*.ts"]
+  "watch": ["src/server/**/*"],
+  "ext": "js,jsx,ts,tsx"
 }

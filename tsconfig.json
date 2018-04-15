@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "esnext",
-    "moduleResolution": "node",
+    "module": "es6",
+    "target": "es6",
     "jsx": "react",
+    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
-    "esModuleInterop": true,
     "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
     "sourceMap": true,
     "baseUrl": ".",

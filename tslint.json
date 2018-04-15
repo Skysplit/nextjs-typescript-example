@@ -5,6 +5,7 @@
     "no-unused-variable": true,
     "no-console": {
       "severity": "warn"
-    }
+    },
+    "no-duplicate-imports": false
   }
 }

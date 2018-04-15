@@ -1,5 +1,5 @@
 import React, { SFC } from 'react';
-import { Link } from '@app/server/routes';
+import { Link } from '@app/next/routes';
 
 const contact: SFC = () => (
   <div>
