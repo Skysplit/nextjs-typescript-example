@@ -11,7 +11,7 @@ const index: SFC = () => (
     </p>
     <p>
       <Link route="users.index">
-        <a>Go to users</a>
+        <a>Browse users list</a>
       </Link>
     </p>
   </div>

@@ -1,6 +1,6 @@
 require('dotenv/config');
 require('babel-register')({
-  extensions: ['.js', '.jsx', '.ts', '.tsx', '.es6', '.es'],
+  extensions: ['.js', '.jsx', '.ts', '.tsx'],
 });
 require('ts-node/register');
 require('tsconfig-paths/register');

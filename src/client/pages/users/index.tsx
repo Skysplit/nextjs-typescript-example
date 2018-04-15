@@ -1,19 +1,29 @@
-import React, { Fragment, SFC } from 'react';
+import React, { Fragment, SFC, Component } from 'react';
+import request from 'superagent';
 import { Link } from '@app/next/routes';
+import { UserProps } from '@app/client/components/User';
+import UsersList from '@app/client/components/UserList';
 
-const users: SFC = () => (
-  <>
-    <p>
-      <Link prefetch route="users.view" params={{ id: 1 }}>
-        <a>Go to first user</a>
-      </Link>
-    </p>
-    <p>
-      <Link route="home">
-        <a>Go to homepage</a>
-      </Link>
-    </p>
-  </>
-);
+type Props = {
+  users: UserProps[],
+};
 
-export default users;
+export default class UsersPage extends Component<Props> {
+  static async getInitialProps() {
+    const response = await request.get('http://localhost:8000/api/users');
+    const users: UserProps[] = response.body;
+    return { users };
+  }
+  render() {
+    return (
+      <div>
+        <h1 style={{ color: 'red' }}>Users list</h1>
+        <UsersList users={this.props.users} />
+        <hr/>
+        <Link route="home">
+          <a>Go to homepage</a>
+        </Link>
+      </div>
+    );
+  }
+}

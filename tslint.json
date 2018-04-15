@@ -6,6 +6,7 @@
     "no-console": {
       "severity": "warn"
     },
-    "no-duplicate-imports": false
+    "no-duplicate-imports": false,
+    "variable-name": false
   }
 }

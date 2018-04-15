@@ -1,38 +1,43 @@
 import React, { Component } from 'react';
+import request from 'superagent';
 import { Link } from '@app/next/routes';
+import { UserProps } from '@app/client/components/User';
 
 type Props = {
-  url: {
-    query: { id: number },
-  },
+  user: UserProps,
 };
 
 type InitialParams = {
-  query: {
-    id: number,
-  },
+  query: { id: number },
 };
 
 export default class UserView extends Component<Props> {
   static async getInitialProps({ query }: InitialParams) {
-    return {
-      lorem: query.id,
-    };
+    const response = await request.get(`http://localhost:8000/api/users/${query.id}`);
+    const user: UserProps = response.body;
+    return { user };
   }
 
   render() {
-    const { url } = this.props;
+    const { user } = this.props;
 
     return (
-      <div>
-        Browsing user with id <strong>{url.query.id}</strong>
+      <>
+        <div>
+          User ID:{' '}
+          <strong>{user.id}</strong>
+        </div>
+        <div>
+          User Name:{' '}
+          <strong>{user.name}</strong>
+        </div>
 
         <p>
           <Link route="users.index">
-            <a>Go back</a>
+            <a>Go back to users list</a>
           </Link>
         </p>
-      </div>
+      </>
     );
   }
 }
