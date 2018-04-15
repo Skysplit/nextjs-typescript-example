@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from '@app/server/routes';
+import { Link } from '@app/next/routes';
 
 type Props = {
   url: {
@@ -7,11 +7,22 @@ type Props = {
   },
 };
 
-// We cannot do import React, { Component } due to TS module interop
-// It kinda sucks
-export default class UserView extends React.Component<Props> {
+type InitialParams = {
+  query: {
+    id: number,
+  },
+};
+
+export default class UserView extends Component<Props> {
+  static async getInitialProps({ query }: InitialParams) {
+    return {
+      lorem: query.id,
+    };
+  }
+
   render() {
     const { url } = this.props;
+
     return (
       <div>
         Browsing user with id <strong>{url.query.id}</strong>
