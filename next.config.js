@@ -1,7 +1,6 @@
 const path  = require('path');
 const get = require('lodash/get');
 const has = require('lodash/has');
-const compose = require('lodash/fp/compose');
 const withTypescript = require('@zeit/next-typescript');
 const withSourceMaps = require('@zeit/next-source-maps');
 const TSConfigPaths = require('tsconfig-paths-webpack-plugin');
