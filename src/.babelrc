@@ -2,6 +2,7 @@
   "presets": [
     "react",
     ["env", {
+      "useBuiltIns": true,
       "targets": {
         "node": "current"
       }

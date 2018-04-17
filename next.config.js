@@ -1,6 +1,9 @@
 const path  = require('path');
-const { get, has } = require('lodash');
+const get = require('lodash/get');
+const has = require('lodash/has');
+const compose = require('lodash/fp/compose');
 const withTypescript = require('@zeit/next-typescript');
+const withSourceMaps = require('@zeit/next-source-maps');
 const TSConfigPaths = require('tsconfig-paths-webpack-plugin');
 
 const setPathsResolution = (config, tsOptions) => {
@@ -12,9 +15,19 @@ const setPathsResolution = (config, tsOptions) => {
   });
 }
 
-module.exports = withTypescript({
+const nextTypescript = withTypescript({
   webpack: (config, options) => {
     setPathsResolution(config);
     return config;
   }
 });
+
+const nextSourceMaps = withSourceMaps(nextTypescript);
+
+const nextConfig = Object.assign(
+  {},
+  nextSourceMaps,
+  { useFileSystemPublicRoutes: false },
+);
+
+module.exports = nextConfig;
