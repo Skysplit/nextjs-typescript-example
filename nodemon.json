@@ -1,4 +1,7 @@
 {
-  "watch": ["src/server/**/*"],
-  "ext": "js,jsx,ts,tsx"
+  "watch": ["src/server/**/*", "src/*.ts"],
+  "ext": "js,jsx,ts,tsx",
+  "execMap": {
+    "ts": "node_modules/.bin/ts-node --project ./tsconfig.server.json"
+  }
 }

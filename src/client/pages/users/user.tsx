@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import request from 'superagent';
 import { Link } from '@app/next/routes';
 import { UserProps } from '@app/client/components/User';
@@ -22,7 +22,7 @@ export default class UserView extends Component<Props> {
     const { user } = this.props;
 
     return (
-      <>
+      <Fragment>
         <div>
           User ID:{' '}
           <strong>{user.id}</strong>
@@ -37,7 +37,7 @@ export default class UserView extends Component<Props> {
             <a>Go back to users list</a>
           </Link>
         </p>
-      </>
+      </Fragment>
     );
   }
 }

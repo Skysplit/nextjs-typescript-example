@@ -1,12 +1,11 @@
-import Routes from 'next-routes';
+import Router from 'next-routes';
 
-const routes = new Routes();
-const { Link } = routes;
+const router = new Router();
 
-routes.add('home', '/', 'home');
-routes.add('contact', '/contact', 'contact');
-routes.add('users.index', '/users', 'users/index');
-routes.add('users.view', '/users/:id', 'users/user');
+router.add('home', '/', 'home');
+router.add('contact', '/contact', 'contact');
+router.add('users.index', '/users', 'users/index');
+router.add('users.view', '/users/:id', 'users/user');
 
-export default routes;
-export { Link };
+export const Link = router.Link;
+export default router;

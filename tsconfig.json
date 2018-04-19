@@ -2,16 +2,22 @@
   "compilerOptions": {
     "module": "esnext",
     "target": "esnext",
-    "jsx": "react",
+    "jsx": "preserve",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noEmitHelpers": true,
     "sourceMap": true,
-    "baseUrl": ".",
+    "allowJs": true,
+    "baseUrl": "./",
     "paths": {
       "@app/*": ["./src/*"]
     }
-  }
+  },
+  "include": [
+    "./src/**/*"
+  ]
 }

@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UserList /> test stub 1`] = `
+<React.Fragment>
+  <User
+    id={1}
+    key="1"
+    name="foo"
+  />
+  <User
+    id={2}
+    key="2"
+    name="bar"
+  />
+</React.Fragment>
+`;
+
+exports[`UserList test stub 1`] = `
+<React.Fragment>
+  <User
+    id={1}
+    key="1"
+    name="foo"
+  />
+  <User
+    id={2}
+    key="2"
+    name="bar"
+  />
+</React.Fragment>
+`;

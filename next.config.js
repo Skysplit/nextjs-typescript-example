@@ -23,10 +23,13 @@ const nextTypescript = withTypescript({
 
 const nextSourceMaps = withSourceMaps(nextTypescript);
 
-const nextConfig = Object.assign(
+const nextConfig = {
+  distDir: '../../dist/client',
+  useFileSystemPublicRoutes: false
+};
+
+module.exports = Object.assign(
   {},
   nextSourceMaps,
-  { useFileSystemPublicRoutes: false },
+  nextConfig,
 );
-
-module.exports = nextConfig;
