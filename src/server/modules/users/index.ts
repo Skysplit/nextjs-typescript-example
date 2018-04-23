@@ -7,7 +7,6 @@ interface UserRequest extends Request {
   };
 }
 
-
 const router = Router();
 
 const users = [

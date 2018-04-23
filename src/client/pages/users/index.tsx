@@ -1,4 +1,4 @@
-import React, { Fragment, SFC, Component } from 'react';
+import React, { Component } from 'react';
 import request from 'superagent';
 import { Link } from '@app/next/routes';
 import { UserProps } from '@app/client/components/User';
@@ -18,7 +18,7 @@ export default class UsersPage extends Component<Props> {
     return (
       <div>
         <h1 style={{ color: 'red' }}>Users list</h1>
-        <UsersList users={this.props.users} />
+          <UsersList users={this.props.users} />
         <hr/>
         <Link route="home">
           <a>Go to homepage</a>

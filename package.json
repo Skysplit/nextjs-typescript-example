@@ -4,19 +4,21 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node ./src",
-    "build": "cross-env NODE_ENV=production next build src/client",
-    "dev": "nodemon src/index.js",
-    "debug": "nodemon --inspect src/index"
+    "start": "cross-env NODE_ENV=production node ./dist/index.js",
+    "start:dev": "nodemon src/index.ts",
+    "start:debug": "nodemon --inspect src/index.ts",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "next build src/client",
+    "build:server": "tsc --project ./tsconfig.server.json",
+    "test": "jest --runInBand --ci --colors",
+    "test:watch": "jest --watch --colors",
+    "lint": "tslint --project ./tsconfig.json"
   },
-  "author": "",
+  "author": "Tomasz Romik",
   "license": "ISC",
   "dependencies": {
     "@zeit/next-source-maps": "^0.0.2",
     "@zeit/next-typescript": "^0.1.1",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-register": "^6.26.0",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "lodash": "^4.17.5",
@@ -25,23 +27,31 @@
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "superagent": "^3.8.2",
-    "ts-node": "^5.0.1",
-    "tsconfig-paths": "^3.3.0",
-    "typescript": "^2.8.1"
+    "tsconfig-paths": "^3.3.0"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.1.10",
+    "@types/enzyme-adapter-react-16": "^1.0.2",
     "@types/express": "^4.11.1",
+    "@types/jest": "^22.2.3",
     "@types/lodash": "^4.14.107",
     "@types/next": "^2.4.9",
-    "@types/node": "^8.10.0",
-    "@types/react": "^16.3.10",
+    "@types/node": "^8.10.8",
+    "@types/react": "^16.3.11",
     "@types/react-dom": "^16.0.5",
     "@types/superagent": "^3.5.8",
     "babel-plugin-transform-imports": "^1.5.0",
     "cross-env": "^5.1.4",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.3",
+    "jest": "^22.4.3",
     "nodemon": "^1.17.3",
+    "ts-jest": "^22.4.3",
+    "ts-node": "^5.0.1",
     "tsconfig-paths-webpack-plugin": "^3.0.3",
     "tslint": "^5.9.1",
-    "tslint-config-airbnb": "^5.8.0"
+    "tslint-config-airbnb": "^5.8.0",
+    "typescript": "^2.8.1"
   }
 }

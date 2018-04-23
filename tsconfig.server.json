@@ -1,0 +1,20 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "importHelpers": true,
+    "noEmitHelpers": true,
+    "esModuleInterop": true
+  },
+  "include": [
+    "./src/index.ts",
+    "./src/server/**/*.ts",
+    "./src/next/**/*.ts"
+  ],
+  "exclude": [
+    "**/*.spec.ts",
+    "**/*.spec.tsx"
+  ]
+}
